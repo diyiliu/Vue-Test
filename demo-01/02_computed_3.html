@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>02_计算属性</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="book in filterBooks">
+               书名: <span>{{book.name}}</span>,    作者: <span>{{book.author}}</span>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {
+                    name: '《Vue.js 实战》',
+                    author: '梁灏'
+                },
+                {
+                    name: '《JavaScript 语言精粹》',
+                    author: 'Douglas Crockford'
+                },
+                {
+                    name: '《JavaScript 高级程序设计》',
+                    author: 'Nicholas C.Zakas'
+                }
+            ]
+        },
+        computed:{
+            filterBooks: function () {
+                return this.books.filter(function (book) {
+
+                    return book.name.match(/JavaScript/);
+                });
+            }
+        }
+    });
+</script>
+</html>

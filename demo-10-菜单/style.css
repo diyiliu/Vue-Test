@@ -1,0 +1,24 @@
+ul{
+    width: 210px;
+    overflow: hidden;
+}
+
+li{
+    cursor: pointer;
+}
+
+li:not(:last-child){
+    border-bottom: 1px solid #3399ff;
+}
+
+li:first-child{
+    border-bottom: 1px solid #3399ff;
+}
+
+li a{
+    display: block;
+}
+
+.hidden{
+    display: none;
+}

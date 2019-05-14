@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Render 函数</title>
+</head>
+<body>
+<div id="app">
+    <ele></ele>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let Child = {
+        render: function (createElement) {
+            return createElement('p', 'text');
+        }
+    };
+    Vue.component('ele', {
+        render: function (createElement) {
+
+            return createElement(
+                'div',
+                Array.apply(null, {
+                    length: 5
+                }).map(function () {
+                    return createElement(Child);
+                })
+            );
+        }
+    });
+
+    const app = new Vue({
+        el: '#app'
+    });
+</script>
+</body>
+</html>

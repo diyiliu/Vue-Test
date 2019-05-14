@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>组件_递归</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .child{
+            width: 50px;
+            height: 28px;
+            background-color: #3399ff;
+            border-bottom: 2px solid rebeccapurple;
+            position: absolute;
+            top: 30px;
+            left: 10px;
+        }
+
+        .child:before{
+            background-color: cyan;
+            content: ' ';
+            height: 2px;
+            width: 100%;
+            position: absolute;
+        }
+
+        .num{
+            position: absolute;
+            right: -30px;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <child-component :count="1"></child-component>
+</div>
+
+<script>
+    Vue.component('child-component', {
+        name: 'child-component',
+        props: {
+            count: {
+                type: Number,
+                default: 1
+            }
+        },
+        template: '<div class="child">' +
+            '<child-component :count="count + 1" v-if="count < 5"></child-component>' +
+            '<div class="num">{{count}}</div>' +
+            '</div>'
+    });
+
+    let app = new Vue({
+        el: '#app'
+    });
+</script>
+</body>
+</html>
