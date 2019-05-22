@@ -1,5 +1,5 @@
 <template>
-    <div>Hello {{name}}</div>
+    <div>Hello, {{name}}</div>
 </template>
 <script>
     export default {
@@ -13,6 +13,6 @@
 <style scoped>
     div{
         color: #f60;
-        font-size: 24px;
+        font-size: 50px;
     }
 </style>
